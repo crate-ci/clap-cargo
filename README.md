@@ -19,8 +19,6 @@ clap-cargo = "0.1"
 
 ## Examples
 
-## Examples
-
 ```rust
 // ...
 #[derive(Debug, structopt::StructOpt)]
