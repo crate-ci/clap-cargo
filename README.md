@@ -3,7 +3,7 @@
 > Re-usable CLI flags for `cargo` plugins
 
 [![Travis Status](https://travis-ci.org/crate-ci/clap-cargo.svg?branch=master)](https://travis-ci.org/crate-ci/clap-cargo)
-[![Appveyor Status](https://ci.appveyor.com/api/projects/status/i1e8vpebw3hu0afg/branch/master?svg=true)](https://ci.appveyor.com/project/epage/assert-cmd/branch/master)
+[![Appveyor status](https://ci.appveyor.com/api/projects/status/ak4j15sddg6v5jsf?svg=true)](https://ci.appveyor.com/project/epage/clap-cargo)
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
 ![License](https://img.shields.io/crates/l/clap-cargo.svg)
 [![Crates Status](https://img.shields.io/crates/v/clap-cargo.svg)](https://crates.io/crates/clap-cargo)
