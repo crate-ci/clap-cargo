@@ -1,5 +1,6 @@
 use std::path;
 
+/// Cargo flag for selecting the relevant crate.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Manifest {
     #[structopt(long="manifest-path", name = "PATH", parse(from_os_str))]
@@ -9,7 +10,9 @@ pub struct Manifest {
 
 #[cfg(feature="cargo_metadata")]
 impl Manifest {
-    /// Requires the features `cargo_metadata`.
+    /// Create a `cargo_metadata::MetadataCommand`
+    ///
+    /// Note: Requires the features `cargo_metadata`.
     pub fn metadata(&self) -> cargo_metadata::MetadataCommand {
         let mut c = cargo_metadata::MetadataCommand::new();
         if let Some(ref manifest_path) = self.manifest_path {

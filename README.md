@@ -19,14 +19,31 @@ clap-cargo = "0.1"
 
 ## Examples
 
+## Examples
+
+```rust
+// ...
+#[derive(Debug, structopt::StructOpt)]
+struct Cli {
+    #[structopt(flatten)]
+    manifest: clap_cargo::Manifest,
+    #[structopt(flatten)]
+    workspace: clap_cargo::Workspace,
+    #[structopt(flatten)]
+    features: clap_cargo::Features,
+}
+```
+
 ## Relevant crates
 
 Other crates that might be useful for cargo plugins:
 * [escargot][escargot] for wrapping `cargo-build`, `carg-run`, `cargo-test`, etc.
 * [cargo_metadata][cargo_metadata] for getting crate information.
+* [clap-verbosity][clap-verbosity] for adding logging to your CLI.
 
 [escargot]: https://crates.io/crates/escargot
 [cargo_metadata]: https://crates.io/crates/cargo_metadata
+[clap-verbosity]: https://crates.io/crates/clap-verbosity-flag
 
 ## License
 

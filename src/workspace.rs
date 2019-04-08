@@ -1,5 +1,6 @@
 use std::collections;
 
+/// Cargo flags for selecting crates in a workspace.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Workspace {
     #[structopt()]
@@ -15,8 +16,11 @@ pub struct Workspace {
 
 #[cfg(feature="cargo_metadata")]
 impl Workspace {
-    /// Requires the features `cargo_metadata`.
-    /// Requires not calling `MetadataCommand::no_deps`
+    /// Partition workspace members into those selected and those excluded.
+    ///
+    /// Notes:
+    /// - Requires the features `cargo_metadata`.
+    /// - Requires not calling `MetadataCommand::no_deps`
     pub fn partition_packages<'m>(&self, meta: &'m cargo_metadata::Metadata) -> (Vec<&'m cargo_metadata::Package>, Vec<&'m cargo_metadata::Package>) {
         let workspace_members: collections::HashSet<_> = meta.workspace_members.iter().collect();
 

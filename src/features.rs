@@ -1,3 +1,4 @@
+/// Cargo Feature Flags.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Features {
     #[structopt(long="all-features")]
@@ -13,7 +14,9 @@ pub struct Features {
 
 #[cfg(feature="cargo_metadata")]
 impl Features {
-    /// Requires the features `cargo_metadata`.
+    /// Forward these flags to the `cargo_metadata` crate.
+    ///
+    /// Note: Requires the features `cargo_metadata`.
     pub fn forward_metadata<'m>(&self, meta: &'m mut cargo_metadata::MetadataCommand) -> &'m mut cargo_metadata::MetadataCommand {
         if self.all_features {
             meta.features(cargo_metadata::CargoOpt::AllFeatures);
