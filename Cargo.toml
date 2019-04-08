@@ -1,0 +1,14 @@
+[package]
+name = "clap-cargo"
+version = "0.1.0"
+authors = ["Ed Page <eopage@gmail.com>"]
+edition = "2018"
+
+[features]
+
+[dependencies]
+structopt = "0.2.10"
+cargo_metadata = { version = "0.7", optional = true }
+
+[package.metadata.docs.rs]
+features = [ "cargo_metadata" ]
