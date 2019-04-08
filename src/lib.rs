@@ -39,10 +39,10 @@
 #![warn(missing_debug_implementations)]
 #![warn(unused_extern_crates)]
 
+mod features;
 mod manifest;
 mod workspace;
-mod features;
 
+pub use features::*;
 pub use manifest::*;
 pub use workspace::*;
-pub use features::*;

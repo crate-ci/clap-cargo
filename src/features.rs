@@ -1,10 +1,10 @@
 /// Cargo Feature Flags.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Features {
-    #[structopt(long="all-features")]
+    #[structopt(long = "all-features")]
     /// Activate all available features
     pub all_features: bool,
-    #[structopt(long="no-default-features")]
+    #[structopt(long = "no-default-features")]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
     #[structopt(name = "FEATURES")]
@@ -12,20 +12,25 @@ pub struct Features {
     pub features: Vec<String>,
 }
 
-#[cfg(feature="cargo_metadata")]
+#[cfg(feature = "cargo_metadata")]
 impl Features {
     /// Forward these flags to the `cargo_metadata` crate.
     ///
     /// Note: Requires the features `cargo_metadata`.
-    pub fn forward_metadata<'m>(&self, meta: &'m mut cargo_metadata::MetadataCommand) -> &'m mut cargo_metadata::MetadataCommand {
+    pub fn forward_metadata<'m>(
+        &self,
+        meta: &'m mut cargo_metadata::MetadataCommand,
+    ) -> &'m mut cargo_metadata::MetadataCommand {
         if self.all_features {
             meta.features(cargo_metadata::CargoOpt::AllFeatures);
         }
         if self.no_default_features {
             meta.features(cargo_metadata::CargoOpt::NoDefaultFeatures);
         }
-        if ! self.features.is_empty() {
-            meta.features(cargo_metadata::CargoOpt::SomeFeatures(self.features.clone()));
+        if !self.features.is_empty() {
+            meta.features(cargo_metadata::CargoOpt::SomeFeatures(
+                self.features.clone(),
+            ));
         }
         meta
     }
@@ -35,7 +40,7 @@ impl Features {
 mod test {
     use super::*;
 
-    #[cfg(feature="cargo_metadata")]
+    #[cfg(feature = "cargo_metadata")]
     #[test]
     fn features_all() {
         let mut metadata = cargo_metadata::MetadataCommand::new();
@@ -50,7 +55,7 @@ mod test {
         // TODO verify we forwarded correctly.
     }
 
-    #[cfg(feature="cargo_metadata")]
+    #[cfg(feature = "cargo_metadata")]
     #[test]
     fn features_none() {
         let mut metadata = cargo_metadata::MetadataCommand::new();

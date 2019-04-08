@@ -14,14 +14,20 @@ pub struct Workspace {
     pub exclude: Vec<String>,
 }
 
-#[cfg(feature="cargo_metadata")]
+#[cfg(feature = "cargo_metadata")]
 impl Workspace {
     /// Partition workspace members into those selected and those excluded.
     ///
     /// Notes:
     /// - Requires the features `cargo_metadata`.
     /// - Requires not calling `MetadataCommand::no_deps`
-    pub fn partition_packages<'m>(&self, meta: &'m cargo_metadata::Metadata) -> (Vec<&'m cargo_metadata::Package>, Vec<&'m cargo_metadata::Package>) {
+    pub fn partition_packages<'m>(
+        &self,
+        meta: &'m cargo_metadata::Metadata,
+    ) -> (
+        Vec<&'m cargo_metadata::Package>,
+        Vec<&'m cargo_metadata::Package>,
+    ) {
         let workspace_members: collections::HashSet<_> = meta.workspace_members.iter().collect();
 
         let resolve = meta.resolve.as_ref().expect("no-deps is unsupported");
@@ -30,21 +36,26 @@ impl Workspace {
             workspace_members.clone()
         } else {
             let mut base_ids = collections::HashSet::new();
-            base_ids.insert(resolve.root.as_ref().expect("`root` is always present outside of `--all`."));
+            base_ids.insert(
+                resolve
+                    .root
+                    .as_ref()
+                    .expect("`root` is always present outside of `--all`."),
+            );
             base_ids
         };
 
         // Probably unneeded optimization for when `all` and `package` are both set.
         let dummy = vec![];
-        let packages = if all {
-            &dummy
-        } else {
-            &self.package
-        };
+        let packages = if all { &dummy } else { &self.package };
 
-        meta.packages.iter()
+        meta.packages
+            .iter()
             .filter(|p| workspace_members.contains(&p.id))
-            .partition(|p| (base_ids.contains(&p.id) || packages.contains(&p.name)) && ! self.exclude.contains(&p.name))
+            .partition(|p| {
+                (base_ids.contains(&p.id) || packages.contains(&p.name))
+                    && !self.exclude.contains(&p.name)
+            })
     }
 }
 
@@ -52,7 +63,7 @@ impl Workspace {
 mod test {
     use super::*;
 
-    #[cfg(feature="cargo_metadata")]
+    #[cfg(feature = "cargo_metadata")]
     #[cfg(test)]
     mod partition_default {
         use super::*;
@@ -128,7 +139,7 @@ mod test {
         }
     }
 
-    #[cfg(feature="cargo_metadata")]
+    #[cfg(feature = "cargo_metadata")]
     #[cfg(test)]
     mod partition_all {
         use super::*;
@@ -209,7 +220,7 @@ mod test {
         }
     }
 
-    #[cfg(feature="cargo_metadata")]
+    #[cfg(feature = "cargo_metadata")]
     #[cfg(test)]
     mod partition_package {
         use super::*;
