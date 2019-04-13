@@ -46,3 +46,9 @@ mod workspace;
 pub use features::*;
 pub use manifest::*;
 pub use workspace::*;
+
+#[macro_use]
+extern crate doc_comment;
+doc_comment! {
+    include_str!("../README.md")
+}
