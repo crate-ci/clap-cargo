@@ -3,13 +3,13 @@ use std::collections;
 /// Cargo flags for selecting crates in a workspace.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Workspace {
-    #[structopt()]
+    #[structopt(long = "package")]
     /// Package to process (see `cargo help pkgid`)
     pub package: Vec<String>,
-    #[structopt()]
+    #[structopt(long = "all")]
     /// Process all packages in the workspace
     pub all: bool,
-    #[structopt()]
+    #[structopt(long = "exclude")]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
 }

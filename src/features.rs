@@ -7,7 +7,7 @@ pub struct Features {
     #[structopt(long = "no-default-features")]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[structopt(name = "FEATURES")]
+    #[structopt(long = "features")]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }
