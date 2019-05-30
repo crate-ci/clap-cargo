@@ -20,7 +20,7 @@ appveyor  = { repository = "epage/clap-cargo" }
 [dependencies]
 structopt = "0.2.10"
 cargo_metadata = { version = "0.7", optional = true }
-doc-comment = "0.2"
+doc-comment = "0.3"
 
 [package.metadata.docs.rs]
 features = [ "cargo_metadata" ]
