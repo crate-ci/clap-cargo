@@ -2,8 +2,6 @@
 
 > Re-usable CLI flags for `cargo` plugins
 
-[![Travis Status](https://travis-ci.org/crate-ci/clap-cargo.svg?branch=master)](https://travis-ci.org/crate-ci/clap-cargo)
-[![Appveyor status](https://ci.appveyor.com/api/projects/status/ak4j15sddg6v5jsf?svg=true)](https://ci.appveyor.com/project/epage/clap-cargo)
 [![Build Status](https://dev.azure.com/crate-ci/crate-ci/_apis/build/status/clap-cargo?branchName=master)](https://dev.azure.com/crate-ci/crate-ci/_build/latest?definitionId=5&branchName=master)
 [![codecov](https://codecov.io/gh/crate-ci/clap-cargo/branch/master/graph/badge.svg)](https://codecov.io/gh/crate-ci/clap-cargo)
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]

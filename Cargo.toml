@@ -12,8 +12,6 @@ edition = "2018"
 license = "MIT"
 
 [badges]
-travis-ci = { repository = "crate-ci/clap-cargo" }
-appveyor  = { repository = "epage/clap-cargo" }
 azure-devops = { project = "crate-ci", pipeline = "clap-cargo" }
 codecov = { repository = "crate-ci/clap-cargo" }
 
