@@ -18,7 +18,7 @@ codecov = { repository = "crate-ci/clap-cargo" }
 [features]
 
 [dependencies]
-structopt = "0.2.10"
+structopt = "0.3.0"
 cargo_metadata = { version = "0.8", optional = true }
 doc-comment = "0.3"
 
