@@ -1,13 +1,13 @@
 /// Cargo Feature Flags.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Features {
-    #[structopt(long = "all-features")]
+    #[structopt(long)]
     /// Activate all available features
     pub all_features: bool,
-    #[structopt(long = "no-default-features")]
+    #[structopt(long)]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[structopt(long = "features")]
+    #[structopt(long)]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }

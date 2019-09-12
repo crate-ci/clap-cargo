@@ -3,7 +3,7 @@ use std::path;
 /// Cargo flag for selecting the relevant crate.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Manifest {
-    #[structopt(long = "manifest-path", name = "PATH", parse(from_os_str))]
+    #[structopt(long, name = "PATH", parse(from_os_str))]
     /// Path to Cargo.toml
     pub manifest_path: Option<path::PathBuf>,
 }
