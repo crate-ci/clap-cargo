@@ -1,6 +1,6 @@
 [package]
 name = "clap-cargo"
-version = "0.1.4"
+version = "0.2.0"
 description = "Re-usable CLI flags for `cargo` plugins"
 keywords = ["cargo"]
 categories = ["development-tools::cargo-plugins"]
@@ -10,6 +10,9 @@ readme = "README.md"
 authors = ["Ed Page <eopage@gmail.com>"]
 edition = "2018"
 license = "MIT"
+
+[package.metadata.docs.rs]
+features = [ "cargo_metadata" ]
 
 [badges]
 azure-devops = { project = "crate-ci", pipeline = "clap-cargo" }
@@ -21,6 +24,3 @@ codecov = { repository = "crate-ci/clap-cargo" }
 structopt = "0.3.0"
 cargo_metadata = { version = "0.8", optional = true }
 doc-comment = "0.3"
-
-[package.metadata.docs.rs]
-features = [ "cargo_metadata" ]
