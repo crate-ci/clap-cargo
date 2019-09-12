@@ -10,6 +10,8 @@ pub struct Features {
     #[structopt(long)]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
+    #[structopt(skip)]
+    __non_exhaustive: (),
 }
 
 #[cfg(feature = "cargo_metadata")]

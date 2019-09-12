@@ -15,6 +15,8 @@ pub struct Workspace {
     #[structopt(long)]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
+    #[structopt(skip)]
+    __non_exhaustive: (),
 }
 
 #[cfg(feature = "cargo_metadata")]
