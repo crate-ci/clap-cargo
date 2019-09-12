@@ -1,3 +1,17 @@
+<a name="0.2.0"></a>
+## 0.2.0 (2019-09-12)
+
+#### Features
+
+* `--workspace` has been added with `--all` acting as an alias.
+
+#### Breaking Changes
+
+* structopt 0.3 is now required
+* cargo_metadata 0.8 is now required
+* Structs are now non-exhaustive
+
+
 <a name="0.1.4"></a>
 ## 0.1.4 (2019-05-23)
 
