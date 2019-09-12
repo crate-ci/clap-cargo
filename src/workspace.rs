@@ -8,6 +8,9 @@ pub struct Workspace {
     pub package: Vec<String>,
     #[structopt(long)]
     /// Process all packages in the workspace
+    pub workspace: bool,
+    #[structopt(long, hidden_short_help(true), hidden_long_help(true))]
+    /// Process all packages in the workspace
     pub all: bool,
     #[structopt(long)]
     /// Exclude packages from being processed
@@ -31,7 +34,7 @@ impl Workspace {
         let workspace_members: collections::HashSet<_> = meta.workspace_members.iter().collect();
 
         let resolve = meta.resolve.as_ref().expect("no-deps is unsupported");
-        let all = self.all || resolve.root.is_none();
+        let all = self.workspace || self.all || resolve.root.is_none();
         let base_ids: collections::HashSet<_> = if all {
             workspace_members.clone()
         } else {
