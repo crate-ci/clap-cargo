@@ -1,3 +1,11 @@
+<a name="0.3.0"></a>
+## 0.3.0 (2019-12022)
+
+#### Breaking Changes
+
+* cargo_metadata 0.9 is now required
+
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2019-09-12)
 
