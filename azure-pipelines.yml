@@ -6,11 +6,10 @@ schedules:
     - master
 
 stages:
-- template: azure/stages.yml@templates
+- template: default.yml@templates
   parameters:
     minrust: 1.33.0
     codecov_token: $(CODECOV_TOKEN_SECRET)
-    test_features: "cargo_metadata"
 - stage: committed
   displayName: Lint History
   dependsOn: []
