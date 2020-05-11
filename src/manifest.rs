@@ -1,6 +1,7 @@
+//! Cargo flag for selecting the relevant crate.
+
 use std::path;
 
-/// Cargo flag for selecting the relevant crate.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Manifest {
     #[structopt(long, name = "PATH", parse(from_os_str))]

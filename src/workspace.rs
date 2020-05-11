@@ -1,6 +1,7 @@
+//! Cargo flags for selecting crates in a workspace.
+
 use std::collections;
 
-/// Cargo flags for selecting crates in a workspace.
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Workspace {
     #[structopt(long)]
