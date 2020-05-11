@@ -1,4 +1,16 @@
-<a name="0.3.0"></a>
+# Change Log
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+<!-- next-header -->
+## [Unreleased] - ReleaseDate
+
+#### Fixes
+
+* Workaround structopt bug causing documentation to override help strings
+
 ## 0.3.0 (2019-12022)
 
 #### Breaking Changes
@@ -6,7 +18,6 @@
 * cargo_metadata 0.9 is now required
 
 
-<a name="0.2.0"></a>
 ## 0.2.0 (2019-09-12)
 
 #### Features
@@ -20,7 +31,6 @@
 * Structs are now non-exhaustive
 
 
-<a name="0.1.4"></a>
 ## 0.1.4 (2019-05-23)
 
 
@@ -29,4 +39,5 @@
 *   Argument names were missing ([c444c5cc](https://github.com/crate-ci/clap-cargo/commit/c444c5cc019f08c6f2e619e166344f548531b8f6))
 
 
-
+<!-- next-url -->
+[Unreleased]: https://github.com/assert-rs/predicates-rs/compare/v0.3.0...HEAD

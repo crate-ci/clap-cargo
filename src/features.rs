@@ -1,4 +1,5 @@
-/// Cargo Feature Flags.
+//! Cargo Feature Flags.
+
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 pub struct Features {
     #[structopt(long)]
