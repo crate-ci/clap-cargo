@@ -1,6 +1,7 @@
 //! Cargo Feature Flags.
 
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
+#[non_exhaustive]
 pub struct Features {
     #[structopt(long)]
     /// Activate all available features
@@ -11,8 +12,6 @@ pub struct Features {
     #[structopt(long)]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
-    #[structopt(skip)]
-    __non_exhaustive: (),
 }
 
 #[cfg(feature = "cargo_metadata")]
