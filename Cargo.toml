@@ -17,6 +17,7 @@ features = [ "cargo_metadata" ]
 [badges]
 azure-devops = { project = "crate-ci", pipeline = "clap-cargo" }
 codecov = { repository = "crate-ci/clap-cargo" }
+maintenance = { status = "passively-maintained" }
 
 [features]
 
