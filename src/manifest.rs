@@ -3,12 +3,11 @@
 use std::path;
 
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
+#[non_exhaustive]
 pub struct Manifest {
     #[structopt(long, name = "PATH", parse(from_os_str))]
     /// Path to Cargo.toml
     pub manifest_path: Option<path::PathBuf>,
-    #[structopt(skip)]
-    __non_exhaustive: (),
 }
 
 #[cfg(feature = "cargo_metadata")]
@@ -34,9 +33,8 @@ mod test {
     fn metadata_with_path() {
         let manifest = Manifest {
             manifest_path: Some(path::PathBuf::from("tests/fixtures/simple/Cargo.toml")),
-            __non_exhaustive: (),
         };
-        let mut metadata = manifest.metadata();
+        let metadata = manifest.metadata();
         metadata.exec().unwrap();
         // TODO verify we forwarded correctly.
     }
@@ -47,7 +45,6 @@ mod test {
         let cwd = path::PathBuf::from("tests/fixtures/simple");
         let manifest = Manifest {
             manifest_path: None,
-            __non_exhaustive: (),
         };
         let mut metadata = manifest.metadata();
         metadata.current_dir(cwd).exec().unwrap();

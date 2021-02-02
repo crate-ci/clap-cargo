@@ -3,6 +3,7 @@
 use std::collections;
 
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
+#[non_exhaustive]
 pub struct Workspace {
     #[structopt(long)]
     /// Package to process (see `cargo help pkgid`)
@@ -16,8 +17,6 @@ pub struct Workspace {
     #[structopt(long)]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
-    #[structopt(skip)]
-    __non_exhaustive: (),
 }
 
 #[cfg(feature = "cargo_metadata")]

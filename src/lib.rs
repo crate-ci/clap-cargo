@@ -35,7 +35,6 @@
 //! [cargo_metadata]: https://crates.io/crates/cargo_metadata
 //! [clap-verbosity]: https://crates.io/crates/clap-verbosity-flag
 
-#![warn(missing_docs)]
 #![warn(missing_debug_implementations)]
 #![warn(unused_extern_crates)]
 
