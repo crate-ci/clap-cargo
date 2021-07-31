@@ -23,5 +23,5 @@ maintenance = { status = "passively-maintained" }
 
 [dependencies]
 structopt = "0.3.0"
-cargo_metadata = { version = "0.12", optional = true }
+cargo_metadata = { version = "0.14", optional = true }
 doc-comment = "0.3"
