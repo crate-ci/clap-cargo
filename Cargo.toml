@@ -1,6 +1,6 @@
 [package]
 name = "clap-cargo"
-version = "0.4.1"
+version = "0.5.0"
 description = "Re-usable CLI flags for `cargo` plugins"
 keywords = ["cargo"]
 categories = ["development-tools::cargo-plugins"]
