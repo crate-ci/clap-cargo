@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+#### Fixes
+
+- With `Workspace::package`, `Workspace::exclude`, and `Features::feature` we
+  were accidentally accepting multiple values (`--feature foo bar`) rather than
+  multiple occurrences (`--feature foo --feature bar`) or delimited values
+  (`--feature "foo bar"`).
+
 ## [0.4.0] - 2021-02-01
 
 #### Breaking Changes

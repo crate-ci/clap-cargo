@@ -5,7 +5,7 @@ use std::collections;
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 #[non_exhaustive]
 pub struct Workspace {
-    #[structopt(long)]
+    #[structopt(long, number_of_values = 1)]
     /// Package to process (see `cargo help pkgid`)
     pub package: Vec<String>,
     #[structopt(long)]
@@ -14,7 +14,7 @@ pub struct Workspace {
     #[structopt(long, hidden_short_help(true), hidden_long_help(true))]
     /// Process all packages in the workspace
     pub all: bool,
-    #[structopt(long)]
+    #[structopt(long, number_of_values = 1)]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
 }
@@ -67,6 +67,55 @@ impl Workspace {
 #[cfg(test)]
 mod test {
     use super::*;
+
+    use structopt::StructOpt;
+
+    #[test]
+    fn parse_multiple_occurrences() {
+        #[derive(PartialEq, Eq, Debug, StructOpt)]
+        struct Args {
+            positional: Option<String>,
+            #[structopt(flatten)]
+            workspace: Workspace,
+        }
+
+        assert_eq!(
+            Args {
+                positional: None,
+                workspace: Workspace {
+                    package: vec![],
+                    workspace: false,
+                    all: false,
+                    exclude: vec![],
+                }
+            },
+            Args::from_iter(&["test"])
+        );
+        assert_eq!(
+            Args {
+                positional: Some("baz".to_owned()),
+                workspace: Workspace {
+                    package: vec!["foo".to_owned(), "bar".to_owned()],
+                    workspace: false,
+                    all: false,
+                    exclude: vec![],
+                }
+            },
+            Args::from_iter(&["test", "--package", "foo", "--package", "bar", "baz"])
+        );
+        assert_eq!(
+            Args {
+                positional: Some("baz".to_owned()),
+                workspace: Workspace {
+                    package: vec![],
+                    workspace: false,
+                    all: false,
+                    exclude: vec!["foo".to_owned(), "bar".to_owned()],
+                }
+            },
+            Args::from_iter(&["test", "--exclude", "foo", "--exclude", "bar", "baz"])
+        );
+    }
 
     #[cfg(feature = "cargo_metadata")]
     #[cfg(test)]

@@ -9,7 +9,7 @@ pub struct Features {
     #[structopt(long)]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[structopt(long)]
+    #[structopt(long, require_delimiter = true, value_delimiter = " ")]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }
@@ -41,6 +41,85 @@ impl Features {
 #[cfg(test)]
 mod test {
     use super::*;
+
+    use structopt::StructOpt;
+
+    #[test]
+    fn parse_multiple_occurrences() {
+        #[derive(PartialEq, Eq, Debug, StructOpt)]
+        struct Args {
+            positional: Option<String>,
+            #[structopt(flatten)]
+            features: Features,
+        }
+
+        assert_eq!(
+            Args {
+                positional: None,
+                features: Features {
+                    all_features: false,
+                    no_default_features: false,
+                    features: vec![]
+                }
+            },
+            Args::from_iter(&["test"])
+        );
+        assert_eq!(
+            Args {
+                positional: Some("foo".to_owned()),
+                features: Features {
+                    all_features: false,
+                    no_default_features: false,
+                    features: vec![]
+                }
+            },
+            Args::from_iter(&["test", "foo"])
+        );
+        assert_eq!(
+            Args {
+                positional: None,
+                features: Features {
+                    all_features: false,
+                    no_default_features: false,
+                    features: vec!["foo".to_owned()]
+                }
+            },
+            Args::from_iter(&["test", "--features", "foo"])
+        );
+        assert_eq!(
+            Args {
+                positional: None,
+                features: Features {
+                    all_features: false,
+                    no_default_features: false,
+                    features: vec!["foo".to_owned(), "bar".to_owned()]
+                }
+            },
+            Args::from_iter(&["test", "--features", "foo bar"])
+        );
+        assert_eq!(
+            Args {
+                positional: Some("baz".to_owned()),
+                features: Features {
+                    all_features: false,
+                    no_default_features: false,
+                    features: vec!["foo".to_owned(), "bar".to_owned()]
+                }
+            },
+            Args::from_iter(&["test", "--features", "foo bar", "baz"])
+        );
+        assert_eq!(
+            Args {
+                positional: Some("baz".to_owned()),
+                features: Features {
+                    all_features: false,
+                    no_default_features: false,
+                    features: vec!["foo".to_owned(), "bar".to_owned()]
+                }
+            },
+            Args::from_iter(&["test", "--features", "foo", "--features", "bar", "baz"])
+        );
+    }
 
     #[cfg(feature = "cargo_metadata")]
     #[test]
