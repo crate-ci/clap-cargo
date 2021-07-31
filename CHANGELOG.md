@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+#### Breaking Changes
+
+- Updated to cargo_metadata 0.14
+
 ## [0.4.1] - 2021-07-31
 
 #### Fixes
