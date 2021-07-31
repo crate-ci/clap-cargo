@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.4.1] - 2021-07-31
+
 #### Fixes
 
 - With `Workspace::package`, `Workspace::exclude`, and `Features::feature` we
@@ -55,6 +57,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 <!-- next-url -->
-[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/crate-ci/clap-cargo/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/crate-ci/clap-cargo/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/crate-ci/clap-cargo/compare/v0.3.0...v0.3.1
