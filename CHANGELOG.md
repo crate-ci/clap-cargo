@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+#### Fixes
+
+- `--exclude` was broken by the previous change
+
 ## [0.6.0] - 2021-08-12
 
 #### Fixes
