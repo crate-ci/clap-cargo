@@ -85,6 +85,7 @@ impl<'p> Packages<'p> {
         match (all, exclude.len(), package.len()) {
             (false, 0, 0) => Packages::Default,
             (false, 0, _) => Packages::Packages(package),
+            (false, _, 0) => Packages::OptOut(exclude), // Deviating from cargo because we don't do error handling
             (false, _, _) => Packages::Packages(package), // Deviating from cargo because we don't do error handling
             (true, 0, _) => Packages::All,
             (true, _, _) => Packages::OptOut(exclude),
