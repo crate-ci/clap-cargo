@@ -33,34 +33,62 @@ impl Workspace {
         Vec<&'m cargo_metadata::Package>,
         Vec<&'m cargo_metadata::Package>,
     ) {
+        let selection =
+            Packages::from_flags(self.workspace || self.all, &self.exclude, &self.package);
         let workspace_members: collections::HashSet<_> = meta.workspace_members.iter().collect();
-
-        let resolve = meta.resolve.as_ref().expect("no-deps is unsupported");
-        let all = self.workspace || self.all || resolve.root.is_none();
-        let base_ids: collections::HashSet<_> = if all {
-            workspace_members.clone()
-        } else {
-            let mut base_ids = collections::HashSet::new();
-            base_ids.insert(
-                resolve
-                    .root
-                    .as_ref()
-                    .expect("`root` is always present outside of `--all`."),
-            );
-            base_ids
+        let base_ids: collections::HashSet<_> = match selection {
+            Packages::Default => {
+                // Deviating from cargo because Metadata doesn't have default members
+                let resolve = meta.resolve.as_ref().expect("no-deps is unsupported");
+                match &resolve.root {
+                    Some(root) => {
+                        let mut base_ids = collections::HashSet::new();
+                        base_ids.insert(root);
+                        base_ids
+                    }
+                    None => workspace_members,
+                }
+            }
+            Packages::All => workspace_members,
+            Packages::OptOut(_) => workspace_members, // Deviating from cargo by only checking workspace members
+            Packages::Packages(patterns) => {
+                meta.packages
+                    .iter()
+                    // Deviating from cargo by not supporting patterns
+                    // Deviating from cargo by only checking workspace members
+                    .filter(|p| workspace_members.contains(&p.id) && patterns.contains(&p.name))
+                    .map(|p| &p.id)
+                    .collect()
+            }
         };
-
-        // Probably unneeded optimization for when `all` and `package` are both set.
-        let dummy = vec![];
-        let packages = if all { &dummy } else { &self.package };
 
         meta.packages
             .iter()
-            .filter(|p| workspace_members.contains(&p.id))
-            .partition(|p| {
-                (base_ids.contains(&p.id) || packages.contains(&p.name))
-                    && !self.exclude.contains(&p.name)
-            })
+            // Deviating from cargo by not supporting patterns
+            .partition(|p| base_ids.contains(&p.id) && !self.exclude.contains(&p.name))
+    }
+}
+
+// See cargo's src/cargo/ops/cargo_compile.rs
+#[derive(Clone, PartialEq, Eq, Debug)]
+#[cfg(feature = "cargo_metadata")]
+enum Packages<'p> {
+    Default,
+    All,
+    OptOut(&'p [String]),
+    Packages(&'p [String]),
+}
+
+#[cfg(feature = "cargo_metadata")]
+impl<'p> Packages<'p> {
+    pub fn from_flags(all: bool, exclude: &'p [String], package: &'p [String]) -> Self {
+        match (all, exclude.len(), package.len()) {
+            (false, 0, 0) => Packages::Default,
+            (false, 0, _) => Packages::Packages(package),
+            (false, _, _) => Packages::Packages(package), // Deviating from cargo because we don't do error handling
+            (true, 0, _) => Packages::All,
+            (true, _, _) => Packages::OptOut(exclude),
+        }
     }
 }
 
@@ -305,8 +333,8 @@ mod test {
                 ..Default::default()
             };
             let (included, excluded) = workspace.partition_packages(&metadata);
-            assert_eq!(included.len(), 2);
-            assert_eq!(excluded.len(), 1);
+            assert_eq!(included.len(), 1);
+            assert_eq!(excluded.len(), 2);
         }
 
         #[test]
@@ -320,8 +348,8 @@ mod test {
                 ..Default::default()
             };
             let (included, excluded) = workspace.partition_packages(&metadata);
-            assert_eq!(included.len(), 2);
-            assert_eq!(excluded.len(), 1);
+            assert_eq!(included.len(), 1);
+            assert_eq!(excluded.len(), 2);
         }
 
         #[test]
@@ -335,8 +363,8 @@ mod test {
                 ..Default::default()
             };
             let (included, excluded) = workspace.partition_packages(&metadata);
-            assert_eq!(included.len(), 3);
-            assert_eq!(excluded.len(), 0);
+            assert_eq!(included.len(), 1);
+            assert_eq!(excluded.len(), 2);
         }
 
         #[test]
@@ -350,8 +378,8 @@ mod test {
                 ..Default::default()
             };
             let (included, excluded) = workspace.partition_packages(&metadata);
-            assert_eq!(included.len(), 2);
-            assert_eq!(excluded.len(), 1);
+            assert_eq!(included.len(), 1);
+            assert_eq!(excluded.len(), 2);
         }
     }
 }

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+#### Fixes
+
+- `--package` is now an opt-in to match `cargo`s behavior
+
 ## [0.5.0] - 2021-07-31
 
 #### Breaking Changes
