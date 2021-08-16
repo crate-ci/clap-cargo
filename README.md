@@ -2,7 +2,6 @@
 
 > Re-usable CLI flags for `cargo` plugins
 
-[![Build Status](https://dev.azure.com/crate-ci/crate-ci/_apis/build/status/clap-cargo?branchName=master)](https://dev.azure.com/crate-ci/crate-ci/_build/latest?definitionId=6&branchName=master)
 [![codecov](https://codecov.io/gh/crate-ci/clap-cargo/branch/master/graph/badge.svg)](https://codecov.io/gh/crate-ci/clap-cargo)
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
 ![License](https://img.shields.io/crates/l/clap-cargo.svg)

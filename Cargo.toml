@@ -2,22 +2,30 @@
 name = "clap-cargo"
 version = "0.6.1"
 description = "Re-usable CLI flags for `cargo` plugins"
-keywords = ["cargo"]
-categories = ["development-tools::cargo-plugins"]
+authors = ["Ed Page <eopage@gmail.com>"]
+license = "MIT OR Apache-2.0"
 repository = "https://github.com/crate-ci/clap-cargo"
 documentation = "https://docs.rs/clap-cargo"
 readme = "README.md"
-authors = ["Ed Page <eopage@gmail.com>"]
+categories = ["development-tools::cargo-plugins"]
+keywords = ["cargo"]
 edition = "2018"
-license = "MIT"
 
 [package.metadata.docs.rs]
 features = [ "cargo_metadata" ]
 
 [badges]
-azure-devops = { project = "crate-ci", pipeline = "clap-cargo" }
 codecov = { repository = "crate-ci/clap-cargo" }
 maintenance = { status = "passively-maintained" }
+
+[package.metadata.release]
+pre-release-replacements = [
+  {file="CHANGELOG.md", search="Unreleased", replace="{{version}}", min=1},
+  {file="CHANGELOG.md", search="\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly=1},
+  {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}", min=1},
+  {file="CHANGELOG.md", search="<!-- next-header -->", replace="<!-- next-header -->\n## [Unreleased] - ReleaseDate\n", exactly=1},
+  {file="CHANGELOG.md", search="<!-- next-url -->", replace="<!-- next-url -->\n[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/{{tag_name}}...HEAD", exactly=1},
+]
 
 [features]
 
