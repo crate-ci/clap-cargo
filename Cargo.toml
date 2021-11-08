@@ -10,13 +10,16 @@ readme = "README.md"
 categories = ["development-tools::cargo-plugins"]
 keywords = ["cargo"]
 edition = "2018"
+include = [
+  "src/**/*",
+  "Cargo.toml",
+  "LICENSE*",
+  "README.md",
+  "examples/**/*"
+]
 
 [package.metadata.docs.rs]
 features = [ "cargo_metadata" ]
-
-[badges]
-codecov = { repository = "crate-ci/clap-cargo" }
-maintenance = { status = "passively-maintained" }
 
 [package.metadata.release]
 pre-release-replacements = [
