@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.7.0] - 2021-11-15
+
 #### Breaking Changes
 
 - If you already have a `-p` short flag, this will break
@@ -84,7 +86,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 <!-- next-url -->
-[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.6.1...HEAD
+[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/crate-ci/clap-cargo/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/crate-ci/clap-cargo/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/crate-ci/clap-cargo/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/crate-ci/clap-cargo/compare/v0.4.1...v0.5.0
