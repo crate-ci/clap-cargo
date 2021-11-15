@@ -5,7 +5,7 @@ use std::collections;
 #[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
 #[non_exhaustive]
 pub struct Workspace {
-    #[structopt(short, long, number_of_values = 1)]
+    #[structopt(short, long, number_of_values = 1, value_name = "SPEC")]
     /// Package to process (see `cargo help pkgid`)
     pub package: Vec<String>,
     #[structopt(long)]
@@ -14,7 +14,7 @@ pub struct Workspace {
     #[structopt(long, hidden_short_help(true), hidden_long_help(true))]
     /// Process all packages in the workspace
     pub all: bool,
-    #[structopt(long, number_of_values = 1)]
+    #[structopt(long, number_of_values = 1, value_name = "SPEC")]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
 }
