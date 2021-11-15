@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+#### Breaking Changes
+
+- If you already have a `-p` short flag, this will break
+
+#### Fixes
+
+- Add `-p` short flag
+- Use `SPEC` as `--package` / `--exclude` value name
+
 ## [0.6.1] - 2021-08-12
 
 #### Fixes
