@@ -33,6 +33,6 @@ pre-release-replacements = [
 [features]
 
 [dependencies]
-structopt = "0.3.0"
+clap = { version = "3.0", default-features = false, features = ["std", "derive"] }
 cargo_metadata = { version = "0.14", optional = true }
 doc-comment = "0.3"

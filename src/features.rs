@@ -1,15 +1,15 @@
 //! Cargo Feature Flags.
 
-#[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
+#[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
 #[non_exhaustive]
 pub struct Features {
-    #[structopt(long)]
+    #[clap(long)]
     /// Activate all available features
     pub all_features: bool,
-    #[structopt(long)]
+    #[clap(long)]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[structopt(long, require_delimiter = true, value_delimiter = " ")]
+    #[clap(long, require_delimiter = true, value_delimiter = ' ')]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }
@@ -42,14 +42,26 @@ impl Features {
 mod test {
     use super::*;
 
-    use structopt::StructOpt;
+    use clap::StructOpt;
+
+    #[test]
+    fn verify_app() {
+        #[derive(Debug, clap::StructOpt)]
+        struct Cli {
+            #[clap(flatten)]
+            features: Features,
+        }
+
+        use clap::IntoApp;
+        Cli::into_app().debug_assert()
+    }
 
     #[test]
     fn parse_multiple_occurrences() {
         #[derive(PartialEq, Eq, Debug, StructOpt)]
         struct Args {
             positional: Option<String>,
-            #[structopt(flatten)]
+            #[clap(flatten)]
             features: Features,
         }
 
@@ -62,7 +74,7 @@ mod test {
                     features: vec![]
                 }
             },
-            Args::from_iter(&["test"])
+            Args::parse_from(&["test"])
         );
         assert_eq!(
             Args {
@@ -73,7 +85,7 @@ mod test {
                     features: vec![]
                 }
             },
-            Args::from_iter(&["test", "foo"])
+            Args::parse_from(&["test", "foo"])
         );
         assert_eq!(
             Args {
@@ -84,7 +96,7 @@ mod test {
                     features: vec!["foo".to_owned()]
                 }
             },
-            Args::from_iter(&["test", "--features", "foo"])
+            Args::parse_from(&["test", "--features", "foo"])
         );
         assert_eq!(
             Args {
@@ -95,7 +107,7 @@ mod test {
                     features: vec!["foo".to_owned(), "bar".to_owned()]
                 }
             },
-            Args::from_iter(&["test", "--features", "foo bar"])
+            Args::parse_from(&["test", "--features", "foo bar"])
         );
         assert_eq!(
             Args {
@@ -106,7 +118,7 @@ mod test {
                     features: vec!["foo".to_owned(), "bar".to_owned()]
                 }
             },
-            Args::from_iter(&["test", "--features", "foo bar", "baz"])
+            Args::parse_from(&["test", "--features", "foo bar", "baz"])
         );
         assert_eq!(
             Args {
@@ -117,7 +129,7 @@ mod test {
                     features: vec!["foo".to_owned(), "bar".to_owned()]
                 }
             },
-            Args::from_iter(&["test", "--features", "foo", "--features", "bar", "baz"])
+            Args::parse_from(&["test", "--features", "foo", "--features", "bar", "baz"])
         );
     }
 

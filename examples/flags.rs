@@ -1,16 +1,16 @@
-use structopt::StructOpt;
+use clap::Parser;
 
-#[derive(Debug, structopt::StructOpt)]
+#[derive(Debug, Parser)]
 struct Cli {
-    #[structopt(flatten)]
+    #[clap(flatten)]
     manifest: clap_cargo::Manifest,
-    #[structopt(flatten)]
+    #[clap(flatten)]
     workspace: clap_cargo::Workspace,
-    #[structopt(flatten)]
+    #[clap(flatten)]
     features: clap_cargo::Features,
 }
 
 fn main() {
-    let args = Cli::from_args();
+    let args = Cli::parse();
     println!("args = {:#?}", args);
 }
