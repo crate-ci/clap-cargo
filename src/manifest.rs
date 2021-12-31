@@ -2,10 +2,10 @@
 
 use std::path;
 
-#[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
+#[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
 #[non_exhaustive]
 pub struct Manifest {
-    #[structopt(long, name = "PATH", parse(from_os_str))]
+    #[clap(long, name = "PATH", parse(from_os_str))]
     /// Path to Cargo.toml
     pub manifest_path: Option<path::PathBuf>,
 }
@@ -27,6 +27,18 @@ impl Manifest {
 #[cfg(test)]
 mod test {
     use super::*;
+
+    #[test]
+    fn verify_app() {
+        #[derive(Debug, clap::StructOpt)]
+        struct Cli {
+            #[clap(flatten)]
+            manifest: Manifest,
+        }
+
+        use clap::IntoApp;
+        Cli::into_app().debug_assert()
+    }
 
     #[cfg(feature = "cargo_metadata")]
     #[test]

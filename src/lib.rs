@@ -13,13 +13,13 @@
 //!
 //! ```rust
 //! // ...
-//! #[derive(Debug, structopt::StructOpt)]
+//! #[derive(Debug, clap::Parser)]
 //! struct Cli {
-//!     #[structopt(flatten)]
+//!     #[clap(flatten)]
 //!     manifest: clap_cargo::Manifest,
-//!     #[structopt(flatten)]
+//!     #[clap(flatten)]
 //!     workspace: clap_cargo::Workspace,
-//!     #[structopt(flatten)]
+//!     #[clap(flatten)]
 //!     features: clap_cargo::Features,
 //! }
 //! ```

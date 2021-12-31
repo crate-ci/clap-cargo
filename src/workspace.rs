@@ -2,19 +2,19 @@
 
 use std::collections;
 
-#[derive(Default, Clone, Debug, PartialEq, Eq, structopt::StructOpt)]
+#[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
 #[non_exhaustive]
 pub struct Workspace {
-    #[structopt(short, long, number_of_values = 1, value_name = "SPEC")]
+    #[clap(short, long, value_name = "SPEC")]
     /// Package to process (see `cargo help pkgid`)
     pub package: Vec<String>,
-    #[structopt(long)]
+    #[clap(long)]
     /// Process all packages in the workspace
     pub workspace: bool,
-    #[structopt(long, hidden_short_help(true), hidden_long_help(true))]
+    #[clap(long, hide_short_help(true), hide_long_help(true))]
     /// Process all packages in the workspace
     pub all: bool,
-    #[structopt(long, number_of_values = 1, value_name = "SPEC")]
+    #[clap(long, value_name = "SPEC")]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
 }
@@ -97,14 +97,26 @@ impl<'p> Packages<'p> {
 mod test {
     use super::*;
 
-    use structopt::StructOpt;
+    use clap::StructOpt;
+
+    #[test]
+    fn verify_app() {
+        #[derive(Debug, clap::StructOpt)]
+        struct Cli {
+            #[clap(flatten)]
+            workspace: Workspace,
+        }
+
+        use clap::IntoApp;
+        Cli::into_app().debug_assert()
+    }
 
     #[test]
     fn parse_multiple_occurrences() {
         #[derive(PartialEq, Eq, Debug, StructOpt)]
         struct Args {
             positional: Option<String>,
-            #[structopt(flatten)]
+            #[clap(flatten)]
             workspace: Workspace,
         }
 
@@ -118,7 +130,7 @@ mod test {
                     exclude: vec![],
                 }
             },
-            Args::from_iter(&["test"])
+            Args::parse_from(&["test"])
         );
         assert_eq!(
             Args {
@@ -130,7 +142,7 @@ mod test {
                     exclude: vec![],
                 }
             },
-            Args::from_iter(&["test", "--package", "foo", "--package", "bar", "baz"])
+            Args::parse_from(&["test", "--package", "foo", "--package", "bar", "baz"])
         );
         assert_eq!(
             Args {
@@ -142,7 +154,7 @@ mod test {
                     exclude: vec!["foo".to_owned(), "bar".to_owned()],
                 }
             },
-            Args::from_iter(&["test", "--exclude", "foo", "--exclude", "bar", "baz"])
+            Args::parse_from(&["test", "--exclude", "foo", "--exclude", "bar", "baz"])
         );
     }
 
