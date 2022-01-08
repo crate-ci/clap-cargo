@@ -31,6 +31,13 @@ struct Cli {
 }
 ```
 
+## Limitations
+
+* [Argument methods][argument_methods] support with required clap(flatten) - see clap [derive reference][derive_reference]
+
+[argument_methods]: https://docs.rs/clap/latest/clap/struct.Arg.html#implementations
+[derive_reference]: https://github.com/clap-rs/clap/blob/master/examples/derive_ref/README.md
+
 ## Relevant crates
 
 Other crates that might be useful for cargo plugins:
