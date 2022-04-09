@@ -72,6 +72,7 @@ impl Workspace {
 // See cargo's src/cargo/ops/cargo_compile.rs
 #[derive(Clone, PartialEq, Eq, Debug)]
 #[cfg(feature = "cargo_metadata")]
+#[allow(clippy::enum_variant_names)]
 enum Packages<'p> {
     Default,
     All,
@@ -107,8 +108,8 @@ mod test {
             workspace: Workspace,
         }
 
-        use clap::IntoApp;
-        Cli::into_app().debug_assert()
+        use clap::CommandFactory;
+        Cli::command().debug_assert()
     }
 
     #[test]
