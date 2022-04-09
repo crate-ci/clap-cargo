@@ -36,8 +36,8 @@ mod test {
             manifest: Manifest,
         }
 
-        use clap::IntoApp;
-        Cli::into_app().debug_assert()
+        use clap::CommandFactory;
+        Cli::command().debug_assert()
     }
 
     #[cfg(feature = "cargo_metadata")]

@@ -9,7 +9,7 @@ pub struct Features {
     #[clap(long)]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[clap(long, require_delimiter = true, value_delimiter = ' ')]
+    #[clap(long, require_value_delimiter = true, value_delimiter = ' ')]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }
@@ -52,8 +52,8 @@ mod test {
             features: Features,
         }
 
-        use clap::IntoApp;
-        Cli::into_app().debug_assert()
+        use clap::CommandFactory;
+        Cli::command().debug_assert()
     }
 
     #[test]
