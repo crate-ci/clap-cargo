@@ -9,7 +9,8 @@ documentation = "https://docs.rs/clap-cargo"
 readme = "README.md"
 categories = ["development-tools::cargo-plugins"]
 keywords = ["cargo"]
-edition = "2018"
+edition = "2021"
+rust-version = "1.56.1"  # MSRV
 include = [
   "src/**/*",
   "Cargo.toml",
@@ -35,5 +36,5 @@ pre-release-replacements = [
 
 [dependencies]
 clap = { version = "3.0", default-features = false, features = ["std", "derive"] }
-cargo_metadata = { version = "0.14", optional = true }
+cargo_metadata = { version = "0.15", optional = true }
 doc-comment = "0.3"
