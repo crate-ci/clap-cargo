@@ -9,7 +9,8 @@ documentation = "https://docs.rs/clap-cargo"
 readme = "README.md"
 categories = ["development-tools::cargo-plugins"]
 keywords = ["cargo"]
-edition = "2018"
+edition = "2021"
+rust-version = "1.56.1"  # MSRV
 include = [
   "src/**/*",
   "Cargo.toml",
