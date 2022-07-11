@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.9.1] - 2022-07-11
+
 ### Features
 
 - `-F` short flag for `--features` to match cargo 1.62.0
@@ -102,7 +104,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 <!-- next-url -->
-[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.9.1...HEAD
+[0.9.1]: https://github.com/crate-ci/clap-cargo/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/crate-ci/clap-cargo/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/crate-ci/clap-cargo/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/crate-ci/clap-cargo/compare/v0.6.1...v0.7.0
