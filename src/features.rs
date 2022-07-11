@@ -9,7 +9,12 @@ pub struct Features {
     #[clap(long)]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[clap(long, require_value_delimiter = true, value_delimiter = ' ')]
+    #[clap(
+        short = 'F',
+        long,
+        require_value_delimiter = true,
+        value_delimiter = ' '
+    )]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }
