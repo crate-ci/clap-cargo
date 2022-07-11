@@ -7,50 +7,54 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Features
+
+- `-F` short flag for `--features` to match cargo 1.62.0
+
 ## [0.9.0] - 2022-07-01
 
-#### Breaking Changes
+### Breaking Changes
 
 - Upgrade `cargo_metadata`
 
 ## [0.8.0] - 2021-12-31
 
-#### Breaking Changes
+### Breaking Changes
 
 - Upgraded to clap3
 
 ## [0.7.0] - 2021-11-15
 
-#### Breaking Changes
+### Breaking Changes
 
 - If you already have a `-p` short flag, this will break
 
-#### Fixes
+### Fixes
 
 - Add `-p` short flag
 - Use `SPEC` as `--package` / `--exclude` value name
 
 ## [0.6.1] - 2021-08-12
 
-#### Fixes
+### Fixes
 
 - `--exclude` was broken by the previous change
 
 ## [0.6.0] - 2021-08-12
 
-#### Fixes
+### Fixes
 
 - `--package` is now an opt-in to match `cargo`s behavior
 
 ## [0.5.0] - 2021-07-31
 
-#### Breaking Changes
+### Breaking Changes
 
 - Updated to cargo_metadata 0.14
 
 ## [0.4.1] - 2021-07-31
 
-#### Fixes
+### Fixes
 
 - With `Workspace::package`, `Workspace::exclude`, and `Features::feature` we
   were accidentally accepting multiple values (`--feature foo bar`) rather than
@@ -59,30 +63,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.4.0] - 2021-02-01
 
-#### Breaking Changes
+### Breaking Changes
 
 * cargo_metadata 0.12 is now required
 
 ## [0.3.1] - 2020-05-11
 
-#### Fixes
+### Fixes
 
 * Workaround structopt bug causing documentation to override help strings
 
 ## 0.3.0 (2019-12022)
 
-#### Breaking Changes
+### Breaking Changes
 
 * cargo_metadata 0.9 is now required
 
 
 ## 0.2.0 (2019-09-12)
 
-#### Features
+### Features
 
 * `--workspace` has been added with `--all` acting as an alias.
 
-#### Breaking Changes
+### Breaking Changes
 
 * structopt 0.3 is now required
 * cargo_metadata 0.8 is now required
@@ -92,7 +96,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## 0.1.4 (2019-05-23)
 
 
-#### Bug Fixes
+### Bug Fixes
 
 *   Argument names were missing ([c444c5cc](https://github.com/crate-ci/clap-cargo/commit/c444c5cc019f08c6f2e619e166344f548531b8f6))
 
