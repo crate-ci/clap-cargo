@@ -1,6 +1,6 @@
 [package]
 name = "clap-cargo"
-version = "0.9.1"
+version = "0.10.0"
 description = "Re-usable CLI flags for `cargo` plugins"
 authors = ["Ed Page <eopage@gmail.com>"]
 license = "MIT OR Apache-2.0"
