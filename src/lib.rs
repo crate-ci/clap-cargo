@@ -15,11 +15,11 @@
 //! // ...
 //! #[derive(Debug, clap::Parser)]
 //! struct Cli {
-//!     #[clap(flatten)]
+//!     #[command(flatten)]
 //!     manifest: clap_cargo::Manifest,
-//!     #[clap(flatten)]
+//!     #[command(flatten)]
 //!     workspace: clap_cargo::Workspace,
-//!     #[clap(flatten)]
+//!     #[command(flatten)]
 //!     features: clap_cargo::Features,
 //! }
 //! ```

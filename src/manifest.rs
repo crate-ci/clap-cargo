@@ -5,7 +5,7 @@ use std::path;
 #[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
 #[non_exhaustive]
 pub struct Manifest {
-    #[clap(long, name = "PATH", parse(from_os_str))]
+    #[arg(long, name = "PATH")]
     /// Path to Cargo.toml
     pub manifest_path: Option<path::PathBuf>,
 }
@@ -30,9 +30,9 @@ mod test {
 
     #[test]
     fn verify_app() {
-        #[derive(Debug, clap::StructOpt)]
+        #[derive(Debug, clap::Parser)]
         struct Cli {
-            #[clap(flatten)]
+            #[command(flatten)]
             manifest: Manifest,
         }
 

@@ -3,18 +3,13 @@
 #[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
 #[non_exhaustive]
 pub struct Features {
-    #[clap(long)]
+    #[arg(long)]
     /// Activate all available features
     pub all_features: bool,
-    #[clap(long)]
+    #[arg(long)]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[clap(
-        short = 'F',
-        long,
-        require_value_delimiter = true,
-        value_delimiter = ' '
-    )]
+    #[arg(short = 'F', long, value_delimiter = ' ')]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }
@@ -47,13 +42,13 @@ impl Features {
 mod test {
     use super::*;
 
-    use clap::StructOpt;
+    use clap::Parser;
 
     #[test]
     fn verify_app() {
-        #[derive(Debug, clap::StructOpt)]
+        #[derive(Debug, clap::Parser)]
         struct Cli {
-            #[clap(flatten)]
+            #[command(flatten)]
             features: Features,
         }
 
@@ -63,10 +58,10 @@ mod test {
 
     #[test]
     fn parse_multiple_occurrences() {
-        #[derive(PartialEq, Eq, Debug, StructOpt)]
+        #[derive(PartialEq, Eq, Debug, Parser)]
         struct Args {
             positional: Option<String>,
-            #[clap(flatten)]
+            #[command(flatten)]
             features: Features,
         }
 
