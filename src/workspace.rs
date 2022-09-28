@@ -5,16 +5,16 @@ use std::collections;
 #[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
 #[non_exhaustive]
 pub struct Workspace {
-    #[clap(short, long, value_name = "SPEC")]
+    #[arg(short, long, value_name = "SPEC")]
     /// Package to process (see `cargo help pkgid`)
     pub package: Vec<String>,
-    #[clap(long)]
+    #[arg(long)]
     /// Process all packages in the workspace
     pub workspace: bool,
-    #[clap(long, hide_short_help(true), hide_long_help(true))]
+    #[arg(long, hide_short_help(true), hide_long_help(true))]
     /// Process all packages in the workspace
     pub all: bool,
-    #[clap(long, value_name = "SPEC")]
+    #[arg(long, value_name = "SPEC")]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
 }
@@ -98,13 +98,13 @@ impl<'p> Packages<'p> {
 mod test {
     use super::*;
 
-    use clap::StructOpt;
+    use clap::Parser;
 
     #[test]
     fn verify_app() {
-        #[derive(Debug, clap::StructOpt)]
+        #[derive(Debug, clap::Parser)]
         struct Cli {
-            #[clap(flatten)]
+            #[command(flatten)]
             workspace: Workspace,
         }
 
@@ -114,10 +114,10 @@ mod test {
 
     #[test]
     fn parse_multiple_occurrences() {
-        #[derive(PartialEq, Eq, Debug, StructOpt)]
+        #[derive(PartialEq, Eq, Debug, Parser)]
         struct Args {
             positional: Option<String>,
-            #[clap(flatten)]
+            #[command(flatten)]
             workspace: Workspace,
         }
 
