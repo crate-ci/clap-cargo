@@ -1,7 +1,13 @@
-[workspace]
-resolver = "2"
-
-[workspace.package]
+[package]
+name = "clap-cargo"
+version = "0.10.0"
+description = "Re-usable CLI flags for `cargo` plugins"
+authors = ["Ed Page <eopage@gmail.com>"]
+repository = "https://github.com/crate-ci/clap-cargo"
+documentation = "https://docs.rs/clap-cargo"
+readme = "README.md"
+categories = ["development-tools::cargo-plugins"]
+keywords = ["cargo"]
 license = "MIT OR Apache-2.0"
 edition = "2021"
 rust-version = "1.65.0"  # MSRV
@@ -15,21 +21,6 @@ include = [
   "benches/**/*",
   "examples/**/*"
 ]
-
-[package]
-name = "clap-cargo"
-version = "0.10.0"
-description = "Re-usable CLI flags for `cargo` plugins"
-authors = ["Ed Page <eopage@gmail.com>"]
-repository = "https://github.com/crate-ci/clap-cargo"
-documentation = "https://docs.rs/clap-cargo"
-readme = "README.md"
-categories = ["development-tools::cargo-plugins"]
-keywords = ["cargo"]
-license.workspace = true
-edition.workspace = true
-rust-version.workspace = true
-include.workspace = true
 
 [package.metadata.docs.rs]
 all-features = true
