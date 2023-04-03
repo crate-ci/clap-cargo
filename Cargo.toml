@@ -3,24 +3,28 @@ name = "clap-cargo"
 version = "0.10.0"
 description = "Re-usable CLI flags for `cargo` plugins"
 authors = ["Ed Page <eopage@gmail.com>"]
-license = "MIT OR Apache-2.0"
 repository = "https://github.com/crate-ci/clap-cargo"
 documentation = "https://docs.rs/clap-cargo"
 readme = "README.md"
 categories = ["development-tools::cargo-plugins"]
 keywords = ["cargo"]
+license = "MIT OR Apache-2.0"
 edition = "2021"
-rust-version = "1.60.0"  # MSRV
+rust-version = "1.65.0"  # MSRV
 include = [
+  "build.rs",
   "src/**/*",
   "Cargo.toml",
+  "Cargo.lock",
   "LICENSE*",
   "README.md",
+  "benches/**/*",
   "examples/**/*"
 ]
 
 [package.metadata.docs.rs]
-features = [ "cargo_metadata" ]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
 
 [package.metadata.release]
 pre-release-replacements = [
