@@ -74,7 +74,7 @@ mod test {
                     features: vec![]
                 }
             },
-            Args::parse_from(&["test"])
+            Args::parse_from(["test"])
         );
         assert_eq!(
             Args {
@@ -85,7 +85,7 @@ mod test {
                     features: vec![]
                 }
             },
-            Args::parse_from(&["test", "foo"])
+            Args::parse_from(["test", "foo"])
         );
         assert_eq!(
             Args {
@@ -96,7 +96,7 @@ mod test {
                     features: vec!["foo".to_owned()]
                 }
             },
-            Args::parse_from(&["test", "--features", "foo"])
+            Args::parse_from(["test", "--features", "foo"])
         );
         assert_eq!(
             Args {
@@ -107,7 +107,7 @@ mod test {
                     features: vec!["foo".to_owned(), "bar".to_owned()]
                 }
             },
-            Args::parse_from(&["test", "--features", "foo bar"])
+            Args::parse_from(["test", "--features", "foo bar"])
         );
         assert_eq!(
             Args {
@@ -118,7 +118,7 @@ mod test {
                     features: vec!["foo".to_owned(), "bar".to_owned()]
                 }
             },
-            Args::parse_from(&["test", "--features", "foo bar", "baz"])
+            Args::parse_from(["test", "--features", "foo bar", "baz"])
         );
         assert_eq!(
             Args {
@@ -129,7 +129,7 @@ mod test {
                     features: vec!["foo".to_owned(), "bar".to_owned()]
                 }
             },
-            Args::parse_from(&["test", "--features", "foo", "--features", "bar", "baz"])
+            Args::parse_from(["test", "--features", "foo", "--features", "bar", "baz"])
         );
     }
 

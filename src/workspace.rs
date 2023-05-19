@@ -1,7 +1,5 @@
 //! Cargo flags for selecting crates in a workspace.
 
-use std::collections;
-
 #[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
 #[non_exhaustive]
 pub struct Workspace {
@@ -35,14 +33,15 @@ impl Workspace {
     ) {
         let selection =
             Packages::from_flags(self.workspace || self.all, &self.exclude, &self.package);
-        let workspace_members: collections::HashSet<_> = meta.workspace_members.iter().collect();
-        let base_ids: collections::HashSet<_> = match selection {
+        let workspace_members: std::collections::HashSet<_> =
+            meta.workspace_members.iter().collect();
+        let base_ids: std::collections::HashSet<_> = match selection {
             Packages::Default => {
                 // Deviating from cargo because Metadata doesn't have default members
                 let resolve = meta.resolve.as_ref().expect("no-deps is unsupported");
                 match &resolve.root {
                     Some(root) => {
-                        let mut base_ids = collections::HashSet::new();
+                        let mut base_ids = std::collections::HashSet::new();
                         base_ids.insert(root);
                         base_ids
                     }
@@ -131,7 +130,7 @@ mod test {
                     exclude: vec![],
                 }
             },
-            Args::parse_from(&["test"])
+            Args::parse_from(["test"])
         );
         assert_eq!(
             Args {
@@ -143,7 +142,7 @@ mod test {
                     exclude: vec![],
                 }
             },
-            Args::parse_from(&["test", "--package", "foo", "--package", "bar", "baz"])
+            Args::parse_from(["test", "--package", "foo", "--package", "bar", "baz"])
         );
         assert_eq!(
             Args {
@@ -155,7 +154,7 @@ mod test {
                     exclude: vec!["foo".to_owned(), "bar".to_owned()],
                 }
             },
-            Args::parse_from(&["test", "--exclude", "foo", "--exclude", "bar", "baz"])
+            Args::parse_from(["test", "--exclude", "foo", "--exclude", "bar", "baz"])
         );
     }
 
