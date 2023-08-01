@@ -40,5 +40,5 @@ pre-release-replacements = [
 
 [dependencies]
 clap = { version = "4.0.0", default-features = false, features = ["std", "derive"] }
-cargo_metadata = { version = "0.15", optional = true }
+cargo_metadata = { version = "0.17", optional = true }
 doc-comment = "0.3"
