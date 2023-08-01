@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Upgraded `cargo_metadata
+
+### Compatibility
+
+- Raised MSRV to 1.66.0
+
 ## [0.10.0] - 2022-09-28
 
 ### Breaking CHanges
