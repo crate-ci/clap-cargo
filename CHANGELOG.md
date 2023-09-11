@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Move clap support behind `clap` feature flag
+
+### Compatibility
+
+- Update MSRV to 1.70.0
+
+### Features
+
+- Expose cargo's nightly styling
+
 ## [0.11.0] - 2023-08-01
 
 ### Breaking Changes
