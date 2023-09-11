@@ -2,10 +2,11 @@
 
 use std::path;
 
-#[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
+#[derive(Default, Clone, Debug, PartialEq, Eq)]
+#[cfg_attr(feature = "clap", derive(clap::Args))]
 #[non_exhaustive]
 pub struct Manifest {
-    #[arg(long, name = "PATH")]
+    #[cfg_attr(feature = "clap", arg(long, name = "PATH"))]
     /// Path to Cargo.toml
     pub manifest_path: Option<path::PathBuf>,
 }
@@ -29,6 +30,7 @@ mod test {
     use super::*;
 
     #[test]
+    #[cfg(feature = "clap")]
     fn verify_app() {
         #[derive(Debug, clap::Parser)]
         struct Cli {

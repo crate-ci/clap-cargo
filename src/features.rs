@@ -1,15 +1,16 @@
 //! Cargo Feature Flags.
 
-#[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
+#[derive(Default, Clone, Debug, PartialEq, Eq)]
+#[cfg_attr(feature = "clap", derive(clap::Args))]
 #[non_exhaustive]
 pub struct Features {
-    #[arg(long)]
+    #[cfg_attr(feature = "clap", arg(long))]
     /// Activate all available features
     pub all_features: bool,
-    #[arg(long)]
+    #[cfg_attr(feature = "clap", arg(long))]
     /// Do not activate the `default` feature
     pub no_default_features: bool,
-    #[arg(short = 'F', long, value_delimiter = ' ')]
+    #[cfg_attr(feature = "clap", arg(short = 'F', long, value_delimiter = ' '))]
     /// Space-separated list of features to activate
     pub features: Vec<String>,
 }
@@ -42,9 +43,8 @@ impl Features {
 mod test {
     use super::*;
 
-    use clap::Parser;
-
     #[test]
+    #[cfg(feature = "clap")]
     fn verify_app() {
         #[derive(Debug, clap::Parser)]
         struct Cli {
@@ -57,7 +57,10 @@ mod test {
     }
 
     #[test]
+    #[cfg(feature = "clap")]
     fn parse_multiple_occurrences() {
+        use clap::Parser;
+
         #[derive(PartialEq, Eq, Debug, Parser)]
         struct Args {
             positional: Option<String>,

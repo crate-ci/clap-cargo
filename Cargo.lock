@@ -57,7 +57,6 @@ version = "0.11.0"
 dependencies = [
  "cargo_metadata",
  "clap",
- "doc-comment",
 ]
 
 [[package]]
@@ -87,12 +86,6 @@ name = "clap_lex"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a2dd5a6fe8c6e3502f568a6353e5273bbb15193ad9a89e457b9970798efbea1"
-
-[[package]]
-name = "doc-comment"
-version = "0.3.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fea41bba32d969b513997752735605054bc0dfa92b4c56bf1189f2e174be7a10"
 
 [[package]]
 name = "heck"

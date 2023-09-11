@@ -37,8 +37,13 @@ pre-release-replacements = [
 ]
 
 [features]
+default = ["clap"]
+clap = ["dep:clap"]
 
 [dependencies]
-clap = { version = "4.0.0", default-features = false, features = ["std", "derive"] }
+clap = { version = "4.0.0", default-features = false, features = ["std", "derive"], optional = true }
 cargo_metadata = { version = "0.17", optional = true }
-doc-comment = "0.3"
+
+[[example]]
+name = "flags"
+required-features = ["clap"]
