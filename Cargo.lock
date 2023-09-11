@@ -54,6 +54,7 @@ dependencies = [
 name = "clap-cargo"
 version = "0.11.0"
 dependencies = [
+ "anstyle",
  "cargo_metadata",
  "clap",
 ]

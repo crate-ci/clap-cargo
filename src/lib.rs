@@ -45,6 +45,8 @@ mod features;
 mod manifest;
 mod workspace;
 
+pub mod style;
+
 pub use features::*;
 pub use manifest::*;
 pub use workspace::*;
