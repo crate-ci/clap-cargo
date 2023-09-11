@@ -1,18 +1,22 @@
 //! Cargo flags for selecting crates in a workspace.
 
-#[derive(Default, Clone, Debug, PartialEq, Eq, clap::Args)]
+#[derive(Default, Clone, Debug, PartialEq, Eq)]
+#[cfg_attr(feature = "clap", derive(clap::Args))]
 #[non_exhaustive]
 pub struct Workspace {
-    #[arg(short, long, value_name = "SPEC")]
+    #[cfg_attr(feature = "clap", arg(short, long, value_name = "SPEC"))]
     /// Package to process (see `cargo help pkgid`)
     pub package: Vec<String>,
-    #[arg(long)]
+    #[cfg_attr(feature = "clap", arg(long))]
     /// Process all packages in the workspace
     pub workspace: bool,
-    #[arg(long, hide_short_help(true), hide_long_help(true))]
+    #[cfg_attr(
+        feature = "clap",
+        arg(long, hide_short_help(true), hide_long_help(true))
+    )]
     /// Process all packages in the workspace
     pub all: bool,
-    #[arg(long, value_name = "SPEC")]
+    #[cfg_attr(feature = "clap", arg(long, value_name = "SPEC"))]
     /// Exclude packages from being processed
     pub exclude: Vec<String>,
 }
@@ -97,9 +101,8 @@ impl<'p> Packages<'p> {
 mod test {
     use super::*;
 
-    use clap::Parser;
-
     #[test]
+    #[cfg(feature = "clap")]
     fn verify_app() {
         #[derive(Debug, clap::Parser)]
         struct Cli {
@@ -112,7 +115,10 @@ mod test {
     }
 
     #[test]
+    #[cfg(feature = "clap")]
     fn parse_multiple_occurrences() {
+        use clap::Parser;
+
         #[derive(PartialEq, Eq, Debug, Parser)]
         struct Args {
             positional: Option<String>,

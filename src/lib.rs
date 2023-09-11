@@ -12,6 +12,7 @@
 //! ## Examples
 //!
 //! ```rust
+//! # #[cfg(feature = "clap")] {
 //! // ...
 //! #[derive(Debug, clap::Parser)]
 //! struct Cli {
@@ -22,6 +23,7 @@
 //!     #[command(flatten)]
 //!     features: clap_cargo::Features,
 //! }
+//! # }
 //! ```
 //!
 //! ## Relevant crates
@@ -46,9 +48,3 @@ mod workspace;
 pub use features::*;
 pub use manifest::*;
 pub use workspace::*;
-
-#[macro_use]
-extern crate doc_comment;
-doc_comment! {
-    include_str!("../README.md")
-}
