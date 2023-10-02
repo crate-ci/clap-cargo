@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Upgraded `cargo_metadata` to 0.18
+
 ## [0.12.0] - 2023-09-11
 
 ### Breaking Changes
@@ -25,7 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Breaking Changes
 
-- Upgraded `cargo_metadata
+- Upgraded `cargo_metadata`
 
 ### Compatibility
 
