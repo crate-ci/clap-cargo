@@ -1,6 +1,6 @@
 [package]
 name = "clap-cargo"
-version = "0.12.0"
+version = "0.13.0"
 description = "Re-usable CLI flags for `cargo` plugins"
 authors = ["Ed Page <eopage@gmail.com>"]
 repository = "https://github.com/crate-ci/clap-cargo"
