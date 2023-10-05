@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/crate-ci/clap-cargo/branch/master/graph/badge.svg)](https://codecov.io/gh/crate-ci/clap-cargo)
 [![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
 ![License](https://img.shields.io/crates/l/clap-cargo.svg)
-[![Crates Status](https://img.shields.io/crates/v/clap-cargo.svg)](https://crates.io/crates/clap-cargo)
+[![Crates Status](https://img.shields.io/crates/v/clap-cargo.svg)][Crates.io]
 
 ## Install
 
@@ -46,8 +46,8 @@ Other crates that might be useful for cargo plugins:
 
 Licensed under either of
 
- * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+* Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0>)
+* MIT license ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>)
 
 at your option.
 
