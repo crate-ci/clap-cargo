@@ -39,19 +39,10 @@ impl Workspace {
             Packages::from_flags(self.workspace || self.all, &self.exclude, &self.package);
         let workspace_members: std::collections::HashSet<_> =
             meta.workspace_members.iter().collect();
+        let workspace_default_members: std::collections::HashSet<_> =
+            meta.workspace_default_members.iter().collect();
         let base_ids: std::collections::HashSet<_> = match selection {
-            Packages::Default => {
-                // Deviating from cargo because Metadata doesn't have default members
-                let resolve = meta.resolve.as_ref().expect("no-deps is unsupported");
-                match &resolve.root {
-                    Some(root) => {
-                        let mut base_ids = std::collections::HashSet::new();
-                        base_ids.insert(root);
-                        base_ids
-                    }
-                    None => workspace_members,
-                }
-            }
+            Packages::Default => workspace_default_members,
             Packages::All => workspace_members,
             Packages::OptOut(_) => workspace_members, // Deviating from cargo by only checking workspace members
             Packages::Packages(patterns) => {
