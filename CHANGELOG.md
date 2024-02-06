@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Compatibility
+
+- Packages selected by default may change
+- MSRV bumped to 1.72
+
+### Fixes
+
+- Use cargo's definition of `default-members` when partitioning packages
+
 ## [0.13.0] - 2023-10-02
 
 ### Breaking Changes
