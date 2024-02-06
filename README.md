@@ -13,7 +13,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-clap-cargo = "0.13.0"
+clap-cargo = "0.14.0"
 ```
 
 ## Examples
