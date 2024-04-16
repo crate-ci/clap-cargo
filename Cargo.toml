@@ -113,7 +113,6 @@ pre-release-replacements = [
   {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}", min=1},
   {file="CHANGELOG.md", search="<!-- next-header -->", replace="<!-- next-header -->\n## [Unreleased] - ReleaseDate\n", exactly=1},
   {file="CHANGELOG.md", search="<!-- next-url -->", replace="<!-- next-url -->\n[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/{{tag_name}}...HEAD", exactly=1},
-  {file="README.md", search="clap-cargo = \"[0-9]+.[0-9]+.[0-9]+\"", replace="clap-cargo = \"{{version}}\"", exactly=1},
 ]
 
 [features]
