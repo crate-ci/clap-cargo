@@ -11,10 +11,13 @@
 //!
 //! ## Examples
 //!
-//! ```rust
+//! ```rust,no_run
 //! # #[cfg(feature = "clap")] {
+//! # #[cfg(feature = "cargo_metadata")] {
+//! use clap::Parser;
+//!
 //! // ...
-//! #[derive(Debug, clap::Parser)]
+//! #[derive(Debug, Parser)]
 //! struct Cli {
 //!     #[command(flatten)]
 //!     manifest: clap_cargo::Manifest,
@@ -23,6 +26,14 @@
 //!     #[command(flatten)]
 //!     features: clap_cargo::Features,
 //! }
+//!
+//! let cli = // ...
+//! # Cli::parse_from(["app"]);
+//! let mut metadata = cli.manifest.metadata();
+//! cli.features.forward_metadata(&mut metadata);
+//! let metadata = metadata.exec().unwrap();
+//! let (selected, excluded) = cli.workspace.partition_packages(&metadata);
+//! # }
 //! # }
 //! ```
 //!
@@ -38,8 +49,9 @@
 //! [clap-verbosity]: https://crates.io/crates/clap-verbosity-flag
 
 #![cfg_attr(docsrs, feature(doc_auto_cfg))]
-#![warn(missing_debug_implementations)]
-#![warn(unused_extern_crates)]
+#![warn(missing_docs)]
+#![warn(clippy::print_stderr)]
+#![warn(clippy::print_stdout)]
 
 mod features;
 mod manifest;

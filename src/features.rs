@@ -1,7 +1,9 @@
 //! Cargo Feature Flags.
 
+/// Cargo Feature Flags.
 #[derive(Default, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "clap", derive(clap::Args))]
+#[cfg_attr(feature = "clap", command(about = None, long_about = None))]
 #[non_exhaustive]
 pub struct Features {
     #[cfg_attr(feature = "clap", arg(long))]
@@ -53,7 +55,7 @@ mod test {
         }
 
         use clap::CommandFactory;
-        Cli::command().debug_assert()
+        Cli::command().debug_assert();
     }
 
     #[test]

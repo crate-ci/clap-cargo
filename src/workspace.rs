@@ -1,7 +1,9 @@
 //! Cargo flags for selecting crates in a workspace.
 
+/// Cargo flags for selecting crates in a workspace.
 #[derive(Default, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "clap", derive(clap::Args))]
+#[cfg_attr(feature = "clap", command(about = None, long_about = None))]
 #[non_exhaustive]
 pub struct Workspace {
     #[cfg_attr(feature = "clap", arg(short, long, value_name = "SPEC"))]
@@ -76,7 +78,7 @@ enum Packages<'p> {
 
 #[cfg(feature = "cargo_metadata")]
 impl<'p> Packages<'p> {
-    pub fn from_flags(all: bool, exclude: &'p [String], package: &'p [String]) -> Self {
+    fn from_flags(all: bool, exclude: &'p [String], package: &'p [String]) -> Self {
         match (all, exclude.len(), package.len()) {
             (false, 0, 0) => Packages::Default,
             (false, 0, _) => Packages::Packages(package),
@@ -102,7 +104,7 @@ mod test {
         }
 
         use clap::CommandFactory;
-        Cli::command().debug_assert()
+        Cli::command().debug_assert();
     }
 
     #[test]

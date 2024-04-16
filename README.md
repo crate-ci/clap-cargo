@@ -7,15 +7,6 @@
 ![License](https://img.shields.io/crates/l/clap-cargo.svg)
 [![Crates Status](https://img.shields.io/crates/v/clap-cargo.svg)][Crates.io]
 
-## Install
-
-Add to your `Cargo.toml`:
-
-```toml
-[dependencies]
-clap-cargo = "0.14.0"
-```
-
 ## Examples
 
 ```rust
