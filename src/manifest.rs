@@ -2,8 +2,10 @@
 
 use std::path;
 
+/// Cargo flag for selecting the relevant crate.
 #[derive(Default, Clone, Debug, PartialEq, Eq)]
 #[cfg_attr(feature = "clap", derive(clap::Args))]
+#[cfg_attr(feature = "clap", command(about = None, long_about = None))]
 #[non_exhaustive]
 pub struct Manifest {
     #[cfg_attr(feature = "clap", arg(long, name = "PATH"))]
@@ -39,7 +41,7 @@ mod test {
         }
 
         use clap::CommandFactory;
-        Cli::command().debug_assert()
+        Cli::command().debug_assert();
     }
 
     #[cfg(feature = "cargo_metadata")]

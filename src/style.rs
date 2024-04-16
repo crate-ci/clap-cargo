@@ -1,4 +1,8 @@
-use anstyle::*;
+#![allow(missing_docs)]
+
+use anstyle::AnsiColor;
+use anstyle::Effects;
+use anstyle::Style;
 
 pub const NOP: Style = Style::new();
 pub const HEADER: Style = AnsiColor::Green.on_default().effects(Effects::BOLD);
