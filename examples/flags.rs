@@ -12,5 +12,5 @@ struct Cli {
 
 fn main() {
     let args = Cli::parse();
-    println!("args = {:#?}", args);
+    println!("args = {args:#?}");
 }
