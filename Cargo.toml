@@ -117,8 +117,12 @@ cargo_metadata = ["dep:cargo_metadata"]
 
 [dependencies]
 anstyle = "1.0.3"
-cargo_metadata = { version = "0.18", optional = true }
+cargo_metadata = { version = "0.19", optional = true }
 clap = { version = "4.4.1", default-features = false, features = ["std", "derive"], optional = true }
+
+[target.'cfg(any())'.dependencies]
+serde = "1.0.210"  # HACK: bad minimal dep in cargo_metadata
+serde_json = "1.0.133"  # HACK: bad minimal dep in cargo_metadata
 
 [[example]]
 name = "flags"
