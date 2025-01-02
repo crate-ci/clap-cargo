@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Upgraded `cargo_metadata` to 0.19
+
 ## [0.14.1] - 2024-07-25
 
 ### Compatibility
