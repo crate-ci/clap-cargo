@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.15.1] - 2025-01-03
+
 ### Fix
 
 - Reduce `Cargo.lock` content
@@ -171,7 +173,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 <!-- next-url -->
-[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.15.0...HEAD
+[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.15.1...HEAD
+[0.15.1]: https://github.com/crate-ci/clap-cargo/compare/v0.15.0...v0.15.1
 [0.15.0]: https://github.com/crate-ci/clap-cargo/compare/v0.14.1...v0.15.0
 [0.14.1]: https://github.com/crate-ci/clap-cargo/compare/v0.14.0...v0.14.1
 [0.14.0]: https://github.com/crate-ci/clap-cargo/compare/v0.13.0...v0.14.0
