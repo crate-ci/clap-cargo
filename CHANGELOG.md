@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fix
+
+- Reduce `Cargo.lock` content
+
 ## [0.15.0] - 2025-01-02
 
 ### Breaking Changes
