@@ -1,14 +1,5 @@
 //! **clap-cargo**: Re-usable CLI flags for `cargo` plugins
 //!
-//! ## Install
-//!
-//! Add to your `Cargo.toml`:
-//!
-//! ```toml
-//! [dependencies]
-//! clap-cargo = "0.1"
-//! ```
-//!
 //! ## Examples
 //!
 //! ```rust,no_run
