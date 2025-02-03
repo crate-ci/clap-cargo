@@ -43,6 +43,11 @@
 #![warn(clippy::print_stderr)]
 #![warn(clippy::print_stdout)]
 
+#[doc = include_str!("../README.md")]
+#[cfg(doctest)]
+#[cfg(feature = "clap")]
+pub struct ReadmeDoctests;
+
 mod features;
 mod manifest;
 mod workspace;
