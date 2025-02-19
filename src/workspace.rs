@@ -12,10 +12,7 @@ pub struct Workspace {
     #[cfg_attr(feature = "clap", arg(long))]
     /// Process all packages in the workspace
     pub workspace: bool,
-    #[cfg_attr(
-        feature = "clap",
-        arg(long, hide_short_help(true), hide_long_help(true))
-    )]
+    #[cfg_attr(feature = "clap", arg(long, hide = true))]
     /// Process all packages in the workspace
     pub all: bool,
     #[cfg_attr(feature = "clap", arg(long, value_name = "SPEC"))]
