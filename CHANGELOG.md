@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- Upgraded `cargo_metadata` to 0.21
+
+### Comptibility
+
+- Bump MSRV to 1.86
+
 ### Fixes
 
 - Don't force long help on for `--help`
