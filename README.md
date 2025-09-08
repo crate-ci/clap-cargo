@@ -12,6 +12,7 @@
 ```rust
 // ...
 #[derive(Debug, clap::Parser)]
+#[command(styles = clap_cargo::style::CLAP_STYLING)]
 struct Cli {
     #[command(flatten)]
     manifest: clap_cargo::Manifest,
