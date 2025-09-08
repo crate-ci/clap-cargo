@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Documentation
+
+- Show how to use terminal styling
+
 ## [0.17.0] - 2025-08-27
 
 ### Breaking Changes
