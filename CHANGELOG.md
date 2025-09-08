@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.17.1] - 2025-09-08
+
 ### Documentation
 
 - Show how to use terminal styling
@@ -199,7 +201,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 <!-- next-url -->
-[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.17.0...HEAD
+[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.17.1...HEAD
+[0.17.1]: https://github.com/crate-ci/clap-cargo/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/crate-ci/clap-cargo/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/crate-ci/clap-cargo/compare/v0.15.2...v0.16.0
 [0.15.2]: https://github.com/crate-ci/clap-cargo/compare/v0.15.1...v0.15.2
