@@ -16,6 +16,8 @@ pub const GOOD: Style = AnsiColor::Green.on_default().effects(Effects::BOLD);
 pub const VALID: Style = AnsiColor::Cyan.on_default().effects(Effects::BOLD);
 pub const INVALID: Style = AnsiColor::Yellow.on_default().effects(Effects::BOLD);
 
+/// For use with
+/// [`clap::Command::styles`](https://docs.rs/clap/latest/clap/struct.Command.html#method.styles)
 #[cfg(feature = "clap")]
 pub const CLAP_STYLING: clap::builder::styling::Styles = clap::builder::styling::Styles::styled()
     .header(HEADER)
