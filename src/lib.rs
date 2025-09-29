@@ -40,7 +40,7 @@
 //! [cargo_metadata]: https://crates.io/crates/cargo_metadata
 //! [clap-verbosity]: https://crates.io/crates/clap-verbosity-flag
 
-#![cfg_attr(docsrs, feature(doc_auto_cfg))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![warn(clippy::print_stderr)]
 #![warn(clippy::print_stdout)]
 
