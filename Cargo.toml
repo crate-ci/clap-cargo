@@ -126,12 +126,12 @@ clap = ["dep:clap"]
 cargo_metadata = ["dep:cargo_metadata", "dep:serde", "dep:serde_json"]
 
 [dependencies]
-anstyle = "1.0.3"
-cargo_metadata = { version = "0.22", optional = true }
-clap = { version = "4.4.1", default-features = false, features = ["std", "derive"], optional = true }
+anstyle = "1.0.13"
+cargo_metadata = { version = "0.23", optional = true }
+clap = { version = "4.5.48", default-features = false, features = ["std", "derive"], optional = true }
 
 [dev-dependencies]
-clap = "4.4.1"
+clap = "4.5.48"
 
 [target.'cfg(any())'.dependencies]
 serde = { version = "1.0.210", optional = true }  # HACK: bad minimal dep in cargo_metadata
