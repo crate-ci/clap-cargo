@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Upgraded `cargo_metadata` to 0.21
 
-### Comptibility
+### Compatibility
 
 - Bump MSRV to 1.86
 
