@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- Update to Cargo 1.91 colors
+
 ## [0.18.0] - 2025-10-01
 
 ### Breaking Changes
