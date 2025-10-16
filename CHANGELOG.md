@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.18.1] - 2025-10-16
+
 ### Fixes
 
 - Update to Cargo 1.91 colors
@@ -211,7 +213,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 
 <!-- next-url -->
-[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.18.0...HEAD
+[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.18.1...HEAD
+[0.18.1]: https://github.com/crate-ci/clap-cargo/compare/v0.18.0...v0.18.1
 [0.18.0]: https://github.com/crate-ci/clap-cargo/compare/v0.17.1...v0.18.0
 [0.17.1]: https://github.com/crate-ci/clap-cargo/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/crate-ci/clap-cargo/compare/v0.16.0...v0.17.0
