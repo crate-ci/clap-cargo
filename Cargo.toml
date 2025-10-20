@@ -124,6 +124,7 @@ pre-release-replacements = [
 default = ["clap"]
 clap = ["dep:clap"]
 cargo_metadata = ["dep:cargo_metadata", "dep:serde", "dep:serde_json"]
+testing_colors = []
 
 [dependencies]
 anstyle = "1.0.13"
