@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- Add `testing_colors` feature for forcing colors to be the same on all platforms for test purposes
+
 ## [0.18.1] - 2025-10-16
 
 ### Fixes
