@@ -51,12 +51,11 @@ pub const CLAP_STYLING: clap::builder::styling::Styles = clap::builder::styling:
 // Copied from https://github.com/rust-lang/annotate-snippets-rs/blob/5a632cdfadb5902bf063722f80b37fcb50da0416/src/renderer/mod.rs
 mod annotate_snippets {
     pub mod renderer {
-        #![allow(unexpected_cfgs)] // for copy/paste sake
         #![allow(dead_code)] // for copy/paste sake
         #![allow(rustdoc::broken_intra_doc_links)] // for copy/paste sake
         use anstyle::{AnsiColor, Effects, Style};
 
-        const USE_WINDOWS_COLORS: bool = cfg!(windows) && !cfg!(feature = "testing-colors");
+        const USE_WINDOWS_COLORS: bool = cfg!(windows) && !cfg!(feature = "testing_colors");
         const BRIGHT_BLUE: Style = if USE_WINDOWS_COLORS {
             AnsiColor::BrightCyan.on_default()
         } else {
