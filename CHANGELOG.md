@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Features
+
+- Expose `styles::CONTEXT` from `cargo info`
+
 ## [0.18.2] - 2025-10-20
 
 ### Fixes
