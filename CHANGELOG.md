@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+## [0.18.3] - 2025-10-22
+
 ### Features
 
 - Expose `styles::CONTEXT` from `cargo info`
@@ -223,7 +225,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 
 <!-- next-url -->
-[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.18.2...HEAD
+[Unreleased]: https://github.com/crate-ci/clap-cargo/compare/v0.18.3...HEAD
+[0.18.3]: https://github.com/crate-ci/clap-cargo/compare/v0.18.2...v0.18.3
 [0.18.2]: https://github.com/crate-ci/clap-cargo/compare/v0.18.1...v0.18.2
 [0.18.1]: https://github.com/crate-ci/clap-cargo/compare/v0.18.0...v0.18.1
 [0.18.0]: https://github.com/crate-ci/clap-cargo/compare/v0.17.1...v0.18.0

@@ -97,7 +97,7 @@ lto = true
 
 [package]
 name = "clap-cargo"
-version = "0.18.2"
+version = "0.18.3"
 description = "Re-usable CLI flags for `cargo` plugins"
 categories = ["development-tools::cargo-plugins"]
 keywords = ["cargo"]
