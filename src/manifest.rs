@@ -8,7 +8,7 @@ use std::path;
 #[cfg_attr(feature = "clap", command(about = None, long_about = None))]
 #[non_exhaustive]
 pub struct Manifest {
-    #[cfg_attr(feature = "clap", arg(long, name = "PATH"))]
+    #[cfg_attr(feature = "clap", arg(short = 'm', long, name = "PATH"))]
     /// Path to Cargo.toml
     pub manifest_path: Option<path::PathBuf>,
 }
