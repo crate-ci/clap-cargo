@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Breaking Changes
+
+- If you already have a `-m` short flag, this will break
+
+### Features
+
+- `-m` short flag for `--manifest-path` to match cargo 1.97.0
+
 ## [0.18.3] - 2025-10-22
 
 ### Features
