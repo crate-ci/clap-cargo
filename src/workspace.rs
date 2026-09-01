@@ -65,7 +65,10 @@ impl Workspace {
 // See cargo's src/cargo/ops/cargo_compile.rs
 #[derive(Clone, PartialEq, Eq, Debug)]
 #[cfg(feature = "cargo_metadata")]
-#[allow(clippy::enum_variant_names)]
+#[expect(
+    clippy::enum_variant_names,
+    reason = "`Packages::Packages` makes sense"
+)]
 enum Packages<'p> {
     Default,
     All,
