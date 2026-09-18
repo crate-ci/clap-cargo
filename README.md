@@ -2,8 +2,8 @@
 
 > Re-usable CLI flags for `cargo` plugins
 
-[![codecov](https://codecov.io/gh/crate-ci/clap-cargo/branch/master/graph/badge.svg)](https://codecov.io/gh/crate-ci/clap-cargo)
-[![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
+[![codecov](https://codecov.io/gh/crate-ci/clap-cargo/branch/main/graph/badge.svg)](https://codecov.io/gh/crate-ci/clap-cargo)
+[![Documentation](https://img.shields.io/badge/docs-main-blue.svg)][Documentation]
 ![License](https://img.shields.io/crates/l/clap-cargo.svg)
 [![Crates Status](https://img.shields.io/crates/v/clap-cargo.svg)][Crates.io]
 
