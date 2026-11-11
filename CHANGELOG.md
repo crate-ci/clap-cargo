@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Fixes
+
+- Match `annotate-snippets` in using the same colors across all OSs
+
 ## [0.19.0] - 2026-08-18
 
 ### Breaking Changes
