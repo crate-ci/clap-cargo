@@ -56,24 +56,15 @@ mod annotate_snippets {
         #![expect(rustdoc::broken_intra_doc_links, reason = "for copy/paste sake")]
         use anstyle::{AnsiColor, Effects, Style};
 
-        const USE_WINDOWS_COLORS: bool = cfg!(windows) && !cfg!(feature = "testing_colors");
-        const BRIGHT_BLUE: Style = if USE_WINDOWS_COLORS {
-            AnsiColor::BrightCyan.on_default()
-        } else {
-            AnsiColor::BrightBlue.on_default()
-        };
         /// [`Renderer::error`] applied by [`Renderer::styled`]
         pub const DEFAULT_ERROR_STYLE: Style =
             AnsiColor::BrightRed.on_default().effects(Effects::BOLD);
         /// [`Renderer::warning`] applied by [`Renderer::styled`]
-        pub const DEFAULT_WARNING_STYLE: Style = if USE_WINDOWS_COLORS {
-            AnsiColor::BrightYellow.on_default()
-        } else {
-            AnsiColor::Yellow.on_default()
-        }
-        .effects(Effects::BOLD);
+        pub const DEFAULT_WARNING_STYLE: Style =
+            AnsiColor::Yellow.on_default().effects(Effects::BOLD);
         /// [`Renderer::info`] applied by [`Renderer::styled`]
-        pub const DEFAULT_INFO_STYLE: Style = BRIGHT_BLUE.effects(Effects::BOLD);
+        pub const DEFAULT_INFO_STYLE: Style =
+            AnsiColor::BrightBlue.on_default().effects(Effects::BOLD);
         /// [`Renderer::note`] applied by [`Renderer::styled`]
         pub const DEFAULT_NOTE_STYLE: Style =
             AnsiColor::BrightGreen.on_default().effects(Effects::BOLD);
@@ -81,18 +72,15 @@ mod annotate_snippets {
         pub const DEFAULT_HELP_STYLE: Style =
             AnsiColor::BrightCyan.on_default().effects(Effects::BOLD);
         /// [`Renderer::line_num`] applied by [`Renderer::styled`]
-        pub const DEFAULT_LINE_NUM_STYLE: Style = BRIGHT_BLUE.effects(Effects::BOLD);
+        pub const DEFAULT_LINE_NUM_STYLE: Style =
+            AnsiColor::BrightBlue.on_default().effects(Effects::BOLD);
         /// [`Renderer::emphasis`] applied by [`Renderer::styled`]
-        pub const DEFAULT_EMPHASIS_STYLE: Style = if USE_WINDOWS_COLORS {
-            AnsiColor::BrightWhite.on_default()
-        } else {
-            Style::new()
-        }
-        .effects(Effects::BOLD);
+        pub const DEFAULT_EMPHASIS_STYLE: Style = Style::new().effects(Effects::BOLD);
         /// [`Renderer::none`] applied by [`Renderer::styled`]
         pub const DEFAULT_NONE_STYLE: Style = Style::new();
         /// [`Renderer::context`] applied by [`Renderer::styled`]
-        pub const DEFAULT_CONTEXT_STYLE: Style = BRIGHT_BLUE.effects(Effects::BOLD);
+        pub const DEFAULT_CONTEXT_STYLE: Style =
+            AnsiColor::BrightBlue.on_default().effects(Effects::BOLD);
         /// [`Renderer::addition`] applied by [`Renderer::styled`]
         pub const DEFAULT_ADDITION_STYLE: Style = AnsiColor::BrightGreen.on_default();
         /// [`Renderer::removal`] applied by [`Renderer::styled`]
